@@ -1,0 +1,119 @@
+@import "../abstracts/variables";
+
+body {
+    color: $primary-text-color;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.7;
+    padding: 3rem;
+    @include respond(media-general){
+        padding: 0
+    }
+
+}
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+
+    /*not make animation shaking*/
+    &--main {
+        letter-spacing: 3.5rem;
+        display: block;
+        font-size: 6rem;
+        font-weight: 700;
+        animation: moveInLeft 0.8s;
+
+        @include respond(phone) {
+
+            letter-spacing: 0.1rem;
+        }
+
+        @include respond(tab-land) {
+            letter-spacing: 2rem;
+        }
+
+        @include respond(tab-port) {
+            letter-spacing: 2.5rem;
+        }
+
+
+
+
+    }
+
+    &--sub {
+        letter-spacing: 1.74rem;
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        animation: moveInRight 0.8s;
+
+        @include respond(phone) {
+
+            letter-spacing: 0.5rem;
+        }
+
+        @include respond(tab-land) {
+            letter-spacing: 1rem;
+        }
+
+        @include respond(tab-port) {
+            letter-spacing: 1.2rem;
+        }
+
+    }
+}
+
+.header-secondary {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    width: fit-content;
+    margin: auto;
+    background-image: linear-gradient(to right, $light-green, $dark-green);
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: 2px;
+    transition: all 0.2s;
+    text-align: center;
+
+
+    @include respond(phone) {
+
+        font-size: 1.8rem;
+    }
+
+    @include respond(tab-land) {
+        font-size: 2rem;
+       
+
+    }
+
+    @include respond(tab-port) {
+        font-size: 2.2rem;
+    }
+
+    &:hover {
+        transform: skewY(2deg) skewX(15deg);
+        text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+    }
+}
+
+.heading-tertiary {
+    font-size: $default-font-size;
+    font-weight: 700;
+
+
+}
+
+.paragraph {
+    font-size: $default-font-size;
+
+    &:not(:last-child) {
+        margin-bottom: 3rem;
+
+    }
+}

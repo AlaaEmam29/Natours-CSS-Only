@@ -1,0 +1,238 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+.navigation {
+
+    &__button {
+        background-color: white;
+        width: 7rem;
+        height: 7rem;
+        position: fixed;
+        top: 6rem;
+        cursor: pointer;
+        right: 6rem;
+        z-index: 2000;
+        border-radius: 50%;
+        -webkit-box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+
+        @include respond(media-general) {
+            top: 4rem;
+            right: 4rem;
+
+
+        }
+
+        &-bar {
+            width: 3rem;
+            height: 0.2rem;
+            background-color: $grey-darker;
+            display: inline-block;
+            @include absoluteCenter;
+
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 3rem;
+                height: 0.2rem;
+                background-color: $grey-darker;
+                display: inline-block;
+                top: 1.2rem;
+                -webkit-transition: all 0.5ms;
+                -o-transition: all 0.5ms;
+                transition: all 0.5ms;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 3rem;
+                height: 0.2rem;
+                background-color: $grey-darker;
+                display: inline-block;
+                bottom: 1.2rem;
+                -webkit-transition: all 0.5ms;
+                -o-transition: all 0.5ms;
+                transition: all 0.5ms;
+            }
+
+        }
+    }
+
+    &__background {
+        width: 6rem;
+        height: 6rem;
+        background-image: -webkit-gradient(linear, left top, left bottom, from($light-green), to($dark-green));
+        background-image: -o-linear-gradient($light-green, $dark-green);
+        background-image: linear-gradient($light-green, $dark-green);
+        border-radius: 50%;
+        position: fixed;
+        z-index: 1000;
+        top: 6.5rem;
+        right: 6.5rem;
+        -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+        transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+        -o-transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+        transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+        transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1), -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+
+        @include respond(media-general) {
+            top: 4.5rem;
+            right: 4.5rem;
+
+        }
+    }
+
+    &__nav {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1100;
+        opacity: 0;
+        width: 0;
+
+        -webkit-transition: all 0.8s, width 0.8s;
+
+        -o-transition: all 0.8s, width 0.8s;
+
+        transition: all 0.8s, width 0.8s;
+    }
+
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__list {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    &__item {
+        font-size: calc(2 * #{$default-font-size});
+        text-align: center;
+        counter-increment: inc;
+        margin: 1rem;
+        background-image: -o-linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
+        background-image: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
+        background-size: 230%;
+        -webkit-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+        color: white;
+
+        @include respond(phone) {
+            font-size: 1.4rem;
+
+
+        }
+
+
+
+        &:hover {
+            background-position: 100%;
+            -webkit-transform: translateX(1.5rem);
+            -ms-transform: translateX(1.5rem);
+            transform: translateX(1.5rem);
+        }
+
+
+
+        &::before {
+            content: "0"counter(inc);
+            font-weight: 300;
+        }
+
+        &:hover::before {
+            color: $dark-green;
+        }
+
+    }
+
+    &__link {
+
+        &:link,
+        &:visited {
+            color: $color-white;
+            text-transform: uppercase;
+            font-weight: 300;
+            padding: 1rem 2rem;
+            display: inline-block;
+        }
+
+
+
+    }
+
+    &__item:hover &__link {
+        color: $dark-green;
+
+    }
+
+
+
+    &__button:hover &__button-bar::after,
+    &__button:hover &__button-bar::before {
+        height: 0.22rem;
+
+    }
+
+    &__button:hover &__button-bar::after {
+        top: 1.4rem;
+    }
+
+    &__button:hover &__button-bar::before {
+        bottom: 1.4rem;
+    }
+
+    &__checkbox:checked~&__background {
+        -webkit-transform: scale(100);
+        -ms-transform: scale(100);
+        transform: scale(100);
+    }
+
+    &__checkbox:checked~&__nav {
+        opacity: 1;
+        width: 100%;
+    }
+
+    &__checkbox:checked+&__button &__button-bar {
+        background-color: transparent;
+    }
+
+    &__checkbox:checked+&__button &__button-bar::after,
+    &__checkbox:checked+&__button &__button-bar::before {
+        height: 0.2rem;
+
+    }
+
+    &__checkbox:checked+&__button &__button-bar::after {
+        top: 0;
+        -webkit-transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+        transform: rotate(135deg);
+
+
+
+    }
+
+
+    &__checkbox:checked+&__button &__button-bar::before {
+        top: 0;
+        -webkit-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+
+
+    }
+}

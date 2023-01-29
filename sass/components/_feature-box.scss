@@ -1,0 +1,58 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+
+.feature-box {
+    background-color: rgba(#fff, 0.8);
+    padding: 2.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1.5rem 4rem rgba(#000000, 0.15);
+    box-shadow: 0 1.5rem 4rem rgba(#000000, 0.15);
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: -webkit-transform 0.2s;
+    -o-transition: transform 0.2s;
+    transition: transform 0.2s;
+    transition: transform 0.2s, -webkit-transform 0.2s;
+
+    @include respond(phone) {
+        padding: 1.8rem;
+    }
+
+    @include respond(tab-port) {
+        padding: 2rem
+    }
+
+    &__icon {
+        font-size: calc(4 *#{$default-font-size});
+        background-image: -webkit-gradient(linear, left top, right bottom, from($light-green-op), to($dark-green-op));
+        background-image: -o-linear-gradient(left top, $light-green-op, $dark-green-op);
+        background-image: linear-gradient(to right bottom, $light-green-op, $dark-green-op);
+        -webkit-background-clip: text;
+        color: transparent;
+        margin-bottom: 0.5rem;
+
+        @include respond(phone) {
+            font-size: calc(3 *#{$default-font-size});
+
+            margin-bottom: 0rem;
+
+        }
+
+        @include respond(tab-port) {
+            margin-bottom: 0rem;
+        }
+
+    }
+
+    &:hover {
+        -webkit-transform: translateY(-1.6rem) scale(1.05);
+        -ms-transform: translateY(-1.6rem) scale(1.05);
+        transform: translateY(-1.6rem) scale(1.05);
+    }
+}

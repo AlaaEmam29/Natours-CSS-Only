@@ -1,0 +1,130 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+.story {
+    width: 75%;
+    margin: 0 auto;
+
+    background-color: rgba($color-white, 0.5);
+    padding: 6rem;
+    padding-left: 9rem;
+    -webkit-transform: skewX(-12deg);
+    -ms-transform: skewX(-12deg);
+    transform: skewX(-12deg);
+    border-radius: 3px;
+    -webkit-box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+    box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+
+    @include clearfix;
+
+    @include respond(media-general) {
+        width: 100%;
+        padding: 4rem;
+        padding-left: 7rem;
+        position: relative;
+        
+       
+
+
+    }
+
+    @include respond(phone) {
+        width: 75vw;
+        -webkit-transform: skewX(0);
+        -ms-transform: skewX(0);
+        transform: skewX(0);
+
+    }
+
+    &__shape {
+        width: 15rem;
+        height: 15rem;
+
+        float: left;
+        shape-outside: circle(55% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        -webkit-clip-path: circle(50% at 50% 50%);
+        -webkit-transform: skewX(12deg) translateX(-3rem);
+        -ms-transform: skewX(12deg) translateX(-3rem);
+        transform: skewX(12deg) translateX(-3rem);
+
+        position: relative;
+        overflow: hidden;
+
+
+        @include respond(phone) {
+            transform: skewX(0) translateX(-3rem);
+
+
+        }
+
+    }
+
+    &__image {
+        height: 100%;
+        transform: translateX(-4rem) scale(1.4);
+        backface-visibility: hidden;
+        transition: all .5s;
+    }
+
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0;
+        transition: all .5s;
+        backface-visibility: hidden;
+    }
+
+
+    &:hover &__image {
+        -webkit-transform: translateX(-2rem) scale(1);
+        -ms-transform: translateX(-2rem) scale(1);
+        transform: translateX(-2rem) scale(1);
+        -webkit-filter: blur(3px) brightness(80%);
+        filter: blur(3px) brightness(80%)
+    }
+
+    &:hover &__caption {
+        opacity: 1;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    &__text {
+        -webkit-transform: skewX(12deg);
+        -ms-transform: skewX(12deg);
+        transform: skewX(12deg);
+
+        @include respond(phone) {
+            -webkit-transform: skewX(0);
+            -ms-transform: skewX(0);
+            transform: skewX(0);
+
+
+        }
+
+
+      
+
+        p {
+            font-size: 1.8rem;
+            line-height: 1.9;
+            margin: 0 auto;
+
+            
+        }
+
+    }
+}

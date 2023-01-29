@@ -1,0 +1,155 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+.popup {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999999999999;
+    background-color: rgba($color-black, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s;
+
+    @supports (backdrop-filter: blur(1rem)) or (-webkit-backdrop-filter: blur(1rem)) {
+        backdrop-filter: blur(1rem);
+        -webkit-backdrop-filter: blur(1rem);
+        background-color: rgba($color-black, 0.3);
+
+
+    }
+
+    &__content {
+        width: 75vw;
+        height: 50rem;
+
+        background-color: white;
+        @include absoluteCenter;
+        -webkit-box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+        box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+        border-radius: 0.5rem;
+        display: table;
+        overflow: hidden;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+        transition: all 0.4s 0.2s;
+
+        @include respond(media-general) {
+            width: 90vw;
+            border-collapse: separate;
+            border-spacing: 1.5rem;
+
+
+        }
+
+    }
+
+    &__left {
+        width: 33.3333333%;
+
+        display: table-cell;
+
+        @include respond(media-general) {
+            width: 100%;
+            display: table-row;
+            vertical-align: top;
+
+        }
+
+    }
+
+
+
+    &__right {
+        width: 66.66666666667%;
+        display: table-cell;
+        vertical-align: middle;
+        position: relative;
+
+        padding: 3rem 5rem;
+
+        @include respond(media-general) {
+            width: 100%;
+            display: table-row;
+
+        }
+    }
+
+
+
+    &__img {
+        display: block;
+
+        width: 100%;
+
+        &:last-child {
+            -o-object-fit: cover;
+            object-fit: cover;
+
+        }
+
+        @include respond(media-general) {
+            width: 50%;
+            display: inline-block;
+        }
+
+    }
+
+    &__text {
+        font-size: 1.4rem;
+        word-spacing: 0.2rem;
+        color: $grey-darker;
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+        -webkit-column-gap: 4rem;
+        -moz-column-gap: 4rem;
+        column-gap: 4rem;
+        -webkit-column-rule: 1px solid rgba($color-black, 0.5);
+        -moz-column-rule: 1px solid rgba($color-black, 0.5);
+        column-rule: 1px solid rgba($color-black, 0.5);
+
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+    }
+
+    &:target {
+        opacity: 1;
+        visibility: visible;
+
+    }
+
+    &:target &__content {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+
+    }
+
+    &__close {
+
+        &:link,
+        &:visited {
+            text-decoration: none;
+            color: $grey-darker;
+            font-size: 3rem;
+            font-weight: 700;
+            position: absolute;
+            right: 2.5rem;
+            top: 1.5rem;
+            display: inline-block;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+
+        &:hover {
+            color: $dark-green;
+        }
+    }
+}

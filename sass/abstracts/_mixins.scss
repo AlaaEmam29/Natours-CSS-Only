@@ -1,0 +1,85 @@
+@mixin btn-selector {
+    text-transform: uppercase;
+    display: inline-block;
+    word-spacing: 0.5rem;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    text-decoration: none;
+    transition: all 0.2s;
+
+    position: relative;
+    font-size: $default-font-size;
+    border: none;
+    cursor: pointer;
+
+}
+
+@mixin absoluteCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+
+
+
+@mixin respond($breakpoint) {
+    @if $breakpoint==phone {
+        @media only screen and (max-width: 37.5em) {
+            @content
+        }
+
+        ; //600px
+    }
+
+    @if $breakpoint==tab-port {
+        @media only screen and (min-width: 37.59em) and (max-width: 56.25em) {
+            @content
+        }
+
+        ; //900px
+    }
+
+    @if $breakpoint==tab-land {
+        @media only screen and (min-width: 56.26em) and (max-width: 75em) {
+            @content
+        }
+
+        ; //1200px
+    }
+
+    @if $breakpoint==big-desktop {
+        @media only screen and (min-width: 112.5em) {
+            @content
+        }
+
+        ; //1800
+    }
+
+    @if $breakpoint==media-general {
+        @media only screen and (max-width: 56.25em) {
+            @content
+        }
+
+        ; //1800
+
+    }
+
+    @if $breakpoint==general-book {
+        @media only screen and  (max-width: 75em) {
+            @content
+        }
+
+        ; //1200px
+
+    }
+}

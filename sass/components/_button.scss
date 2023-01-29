@@ -1,0 +1,98 @@
+@import "../abstracts/_variables.scss";
+
+.btn {
+
+    &,
+    &:link,
+    &:visited {
+        @include btn-selector;
+
+    }
+
+    &:link,
+    &:visited {
+        margin-top: 6rem;
+
+    }
+
+    &--white {
+        background-color: #fff;
+        color: #777;
+
+        &::after {
+            background-color: #fff;
+        }
+    }
+
+    &--green {
+        background-color: $light-green;
+        color: #fff;
+
+        &::after {
+            background-color: $light-green;
+        }
+    }
+
+    &--animated {
+        animation: moveToTop 0.5s ease-in-out 0.75s;
+        animation-fill-mode: backwards;
+        /*apply 0% in animation before the animation start*/
+    }
+
+    &:hover {
+        transform: translateY(-0.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    }
+
+    &:active,
+    &:focus {
+        transform: translateY(-0.1rem);
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    }
+
+    &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all 0.4s;
+    }
+
+    &:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+    }
+}
+
+.btn--text {
+
+    &:link,
+    &:visited {
+        color: $medium-green;
+        display: inline-block;
+        border-bottom: 1px solid $medium-green;
+        padding: 3px;
+        font-size: 1.6rem;
+        background-color: transparent;
+        transition: all 0.2s;
+    }
+
+    &:active {
+        transform: translateY(-0.1rem);
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+
+    }
+
+    &:hover {
+        background-color: $medium-green;
+        color: $color-white;
+        transform: translateY(-0.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    }
+}

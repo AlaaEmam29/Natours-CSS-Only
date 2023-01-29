@@ -1,0 +1,47 @@
+*,
+*::after,
+*::before {
+    /*serval selector*/
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit
+}
+
+html {
+    font-size: 62.5%;
+
+    @include respond(phone) {
+
+        font-size: 50%;
+    }
+
+    @include respond(tab-port) {
+
+        font-size: 55%;
+    }
+
+    @include respond(tab-land) {
+
+        font-size: 60%;
+    }
+
+
+
+    @include respond(big-desktop) {
+        font-size: 75%; //1rem = 12, 12/16
+    }
+
+}
+
+body {
+    box-sizing: border-box;
+    /*change the box model by not adding the border and the padding to total width and total height*/
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}

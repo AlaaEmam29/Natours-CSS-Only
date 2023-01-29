@@ -1,0 +1,173 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+.form {
+
+    
+
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+
+    }
+
+
+
+    &__input {
+        font-family: inherit;
+        font-size: 1.5rem;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba($color-white, 0.5);
+        color: inherit;
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 85%;
+        display: block;
+        -webkit-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+
+        @include respond(media-general) {
+            width: 100%;
+
+        }
+
+        &:focus {
+            outline: none;
+            -webkit-box-shadow: 0 1rem 2rem rgba(#000, 0.15);
+            box-shadow: 0 1rem 2rem rgba(#000, 0.15);
+            border-bottom: 3px solid rgba(orangered, 0.5);
+        }
+
+        &:valid {
+            border-bottom: 3px solid rgba(green, 0.5);
+        }
+
+        &::-webkit-input-placeholder {
+            font-size: 1.6rem;
+            letter-spacing: 0.5rem;
+            color: $color-gray-dark-1;
+        }
+
+        &::-moz-placeholder {
+            font-size: 1.6rem;
+            letter-spacing: 0.5rem;
+            color: $color-gray-dark-1;
+        }
+
+        &:-ms-input-placeholder {
+            font-size: 1.6rem;
+            letter-spacing: 0.5rem;
+            color: $color-gray-dark-1;
+        }
+
+        &::-ms-input-placeholder {
+            font-size: 1.6rem;
+            letter-spacing: 0.5rem;
+            color: $color-gray-dark-1;
+        }
+
+        &::placeholder {
+            font-size: 1.6rem;
+            letter-spacing: 0.5rem;
+            color: $color-gray-dark-1;
+        }
+
+
+    }
+
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: 0.7rem;
+        display: block;
+        -webkit-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+
+    &__input:-moz-placeholder-shown+&__label {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+
+    &__input:-ms-input-placeholder+&__label {
+        opacity: 0;
+        visibility: hidden;
+        -ms-transform: translateY(-4rem);
+        transform: translateY(-4rem);
+    }
+
+    &__input:placeholder-shown+&__label {
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transform: translateY(-4rem);
+        -ms-transform: translateY(-4rem);
+        transform: translateY(-4rem);
+    }
+
+    &__radio-group {
+        width: 49%;
+        display: inline-block;
+        padding: 1rem;
+
+        @include respond(media-general) {
+            width: 100%;
+            margin-bottom: 1rem;
+
+        }
+    }
+
+    &__radio-label {
+        font-size: $default-font-size;
+        cursor: pointer;
+        position: relative;
+        padding-left: 4rem;
+
+
+
+    }
+
+    &__radio-input {
+        display: none;
+    }
+
+    &__radio-button {
+        width: 3rem;
+        display: inline-block;
+        height: 3rem;
+        border-radius: 50%;
+        border: 5px solid $dark-green;
+        position: absolute;
+        left: 0;
+        top: -0.5rem;
+
+        &::after {
+            content: "";
+            width: 1.4rem;
+            height: 1.4rem;
+            background-color: $dark-green;
+            position: absolute;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            opacity: 0;
+
+        }
+    }
+
+    &__radio-input:checked+&__radio-label &__radio-button::after {
+        opacity: 1;
+    }
+
+
+}

@@ -1,0 +1,71 @@
+.header {
+    height: 95vh;
+    /*    95% of viewport the height   */
+    background-image: linear-gradient(to right bottom, $light-green-op, $dark-green-op), url(../img/hero-small.jpg);
+    background-position: top;
+    /* make the top of image always stay of the top of container */
+    background-size: cover;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    position: relative;
+
+    @media (min-resolution: 192dpi) and (min-width : 37.5em),
+    (-webkit-device-pixel-ratio : 2) and (min-width : 37.5em),
+    (min-width: 125em) {
+        background-image: linear-gradient(to right bottom, $light-green-op, $dark-green-op), url(../img/hero.jpg);
+
+    }
+
+
+
+    @include respond(phone) {
+
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
+
+    }
+
+    @include respond(tab-port) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
+
+    @include respond(tab-land) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+    }
+
+
+
+    @include respond(big-desktop) {}
+
+
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+
+
+    }
+
+    &__logo {
+        height: 4rem;
+        cursor: pointer;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+
+
+
+
+    }
+}
